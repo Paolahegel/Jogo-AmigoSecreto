@@ -23,7 +23,19 @@ function atualizarListaAmigos() {
 }
 
 function sortearAmigo() {
-    const amigoSorteado = amigos[Math.floor(Math.random() * amigos.length)];
-    document.getElementById('apresentacao').textContent = 'Amigo sorteado:';
-    document.getElementById('resultado-amigo').textContent = amigoSorteado;
+    if (amigos.length > 0) {
+        const amigoSorteado = amigos[Math.floor(Math.random() * amigos.length)];
+        document.getElementById("apresentacao").textContent = "Amigo sorteado:";
+        document.getElementById("resultado-amigo").textContent = amigoSorteado;
+    } else {
+        alert("Adicione amigos antes de sortear.");
+    }
+}
+
+function resetarSorteio() {
+    amigos = [];
+    document.getElementById("listaAmigos").innerHTML = "";
+    document.getElementById("apresentacao").textContent = "";
+    document.getElementById("resultado-amigo").textContent = "";
+    alert("Tudo zerado! Bora começar de novo!");
 }
